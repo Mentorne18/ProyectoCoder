@@ -27,7 +27,7 @@ from django.http import HttpResponse
 
 def inicio(request):
     
-    return render(request, "appCoder/inicio.html")
+    return render(request, "appCoder/index.html")
 
 def cursos(request):
     
