@@ -1,11 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cursos</title>
-</head>
-<body style="background-color: grey;">
-    Aqui puedes ver tus cursos activos y los disponibles
-</body>
-</html>
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+
+<section class="courses">
+    <div class="container">
+        <h2>¡Nuestros Cursos!</h2>
+        <p>Explora nuestros cursos y elige el que mejor se adapte a tus necesidades.</p>
+        <ul>
+            <li>Curso 1: Desarrollo Web</li>
+            <li>Curso 2: Machine Learning</li>
+            <li>Curso 3: Programación en Python</li>
+            <!-- Agrega más cursos aquí -->
+        </ul>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,11 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estudiantes</title>
-</head>
-<body style="background-color: mediumorchid;">
-    
-</body>
-</html>
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<section class="students">
+    <div class="container">
+        <h2>¡Bienvenidos, Estudiantes!</h2>
+        <p>Encuentra recursos y herramientas útiles para tu aprendizaje.</p>
+        <ul>
+            <li>Recursos de estudio</li>
+            <li>Calendario académico</li>
+            <li>Enlaces útiles</li>
+            <!-- Agrega más recursos para estudiantes aquí -->
+        </ul>
+    </div>
+</section>
+
+{% endblock %}
+
