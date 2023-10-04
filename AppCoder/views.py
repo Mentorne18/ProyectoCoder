@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from .models import Curso #para traer Curso de models y usarlo en la validación de datos enviados.
+from AppCoder.forms import CursoFormulario
 
 # Create your views here.
 
@@ -47,5 +48,25 @@ def entregables(request):
 
 def cursoFormulario(request):
     
-    return render(request,
-                  "AppCoder/cursoFormulario.html")
+    if request.method == "POST":
+        
+        miFormulario = CursoFormulario(request.POST) # aca nos llega toda la info del html
+        
+        print(miFormulario)
+        
+        if miFormulario.is_valid(): #if para ver si pasa la validación de django
+            
+            informacion = miFormulario.cleaned_data
+            
+            curso = Curso (nombre=informacion["curso"], camada=informacion["camada"])
+            
+            curso.save()
+            
+            return render(request, "AppCoder/inicio.html") #aca volvemos al inicio de la pagina luego del registro o podemos elegir donde querramos.
+        
+    else:
+        
+        miFormulario = CursoFormulario() #Formulario vacio para construir el html. Al llamarla con los campos vacios, devuelve este valor.
+        
+    return render(request, "AppCoder/cursoFormulario.html", {"miFormulario":miFormulario})
+
