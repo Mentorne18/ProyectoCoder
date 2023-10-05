@@ -103,10 +103,12 @@ def buscar(request):
         camada = request.GET["camada"]
         cursos = Curso.objects.filter(camada__icontains=camada)
         
-        return render(request, "AppCoder/resultadosBusqueda.html", {"cursos":cursos, "camada":camada})
+        return render(request, "AppCoder/index.html", {"cursos":cursos, "camada":camada})
     
     else:
         
         respuesta = "No enviaste datos"
     
-    return HttpResponse(respuesta)
+    #return HttpResponse(respuesta)
+    
+    return render(request, "AppCoder/index.html", {"respuesta":respuesta})
