@@ -46,12 +46,11 @@ def entregables(request):
 
     return render(request, "appCoder/entregables.html")
 
-def cursos(request):
+def cursoFormulario(request):
  
       if request.method == "POST":
  
             miFormulario = CursoFormulario(request.POST) # Aqui me llega la informacion del html
-            
             print(miFormulario)
  
             if miFormulario.is_valid():
@@ -62,7 +61,7 @@ def cursos(request):
       else:
             miFormulario = CursoFormulario()
  
-      return render(request, "AppCoder/cursos.html", {"miFormulario": miFormulario})
+      return render(request, "AppCoder/cursoFormulario.html", {"miFormulario": miFormulario})
   
 def profesorFormulario(request):
       
@@ -103,12 +102,10 @@ def buscar(request):
         camada = request.GET["camada"]
         cursos = Curso.objects.filter(camada__icontains=camada)
         
-        return render(request, "AppCoder/index.html", {"cursos":cursos, "camada":camada})
+        return render(request, "AppCoder/resultadosBusqueda.html", {"cursos":cursos, "camada":camada})
     
     else:
         
         respuesta = "No enviaste datos"
     
-    #return HttpResponse(respuesta)
-    
-    return render(request, "AppCoder/index.html", {"respuesta":respuesta})
+    return HttpResponse(respuesta)

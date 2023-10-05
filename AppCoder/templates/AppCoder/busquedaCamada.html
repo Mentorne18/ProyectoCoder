@@ -1,4 +1,4 @@
-<!-- <h1>Ingrese la camada que esta buscando:</h1>
+<h1>Ingrese la camada que esta buscando:</h1>
 
 <form action="/AppCoder/buscar/" method="GET">
 
@@ -7,24 +7,4 @@
 <input type="submit" value="Buscar">
 
 
-</form> -->
-
-<h1>Ingrese la camada que está buscando:</h1>
-<form action="/AppCoder/buscar/" method="GET">
-    <input type="number" name="camada" id="camada">
-    <input type="submit" value="Buscar">
 </form>
-
-{% if cursos %}
-    <!-- Mostrar resultados de búsqueda -->
-    <p>Estamos buscando el: {{camada}}</p>
-    <ul>
-        {% for curso in cursos %}
-            <li>{{curso.nombre}}</li>
-            <li>{{curso.camada}}</li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <!-- Mostrar mensaje si no hay resultados -->
-    <p>No hay datos con esa descripción.</p>
-{% endif %}
