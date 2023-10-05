@@ -46,11 +46,12 @@ def entregables(request):
 
     return render(request, "appCoder/entregables.html")
 
-def cursoFormulario(request):
+def cursos(request):
  
       if request.method == "POST":
  
             miFormulario = CursoFormulario(request.POST) # Aqui me llega la informacion del html
+            
             print(miFormulario)
  
             if miFormulario.is_valid():
@@ -61,7 +62,7 @@ def cursoFormulario(request):
       else:
             miFormulario = CursoFormulario()
  
-      return render(request, "AppCoder/cursoFormulario.html", {"miFormulario": miFormulario})
+      return render(request, "AppCoder/cursos.html", {"miFormulario": miFormulario})
   
 def profesorFormulario(request):
       
